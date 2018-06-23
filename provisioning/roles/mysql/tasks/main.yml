@@ -1,0 +1,14 @@
+
+
+- name: MySQL | install mysql packages
+  apt: pkg={{ item }} state=installed
+  become: true
+  with_items:
+   - mysql-client
+   - mysql-common
+   - mysql-server
+   - python-mysqldb
+
+- name: config
+  shell: >
+    bash /vagrant/provisioning/roles/mysql/templates/config.sh

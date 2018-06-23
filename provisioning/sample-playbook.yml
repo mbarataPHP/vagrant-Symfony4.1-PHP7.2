@@ -1,0 +1,30 @@
+- hosts: all
+  become: yes
+  become_method: sudo
+  gather_facts: no
+  tasks:
+    - name: update apt cache
+      apt: update_cache=yes
+  vars:
+    lsb_release: stretch
+    composer_path: /usr/local/bin/
+    mysql_user: root
+    mysql_old_root_password: productionpw
+    mysql_root_password: docker
+  roles:
+    - curl
+    - apt-transport-https
+    - lsb-release
+    - ca-certificates
+    - ufw
+    - sudo
+    - git
+    - mysql
+    - make
+    - php
+    - nginx
+    - phpunit
+    - composer
+    - node
+    - yarn
+    - service
