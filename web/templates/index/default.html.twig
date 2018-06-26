@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-4">
+            <a class="btn btn-outline-success btn-lg btn-block" href="{{ path('page_add') }}" role="button">Ajouter</a>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    Vous avez {{ pages|length }} page(s)
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        {% for page in pages %}
+            <div class="col-6">
+                <div class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <h1 class="display-2">{{ page.title }}</h1>
+                        <hr class="my-4">
+                        <p>{{ page.getInfo() }}</p>
+                        <p class="lead">
+                            <div class="row">
+                                <div class="col-4">
+                                    <a class="btn btn-primary btn-lg" href="{{ path('page_get', {id:page.id}) }}" role="button">afficher</a>
+                                </div>
+                                <div class="col-4">
+                                    {{ page.createdAt|date("m/d/Y H:i:s", "Europe/Paris") }}
+                                </div>
+                                <div class="col-4">
+                                    {{ page.user.username }}
+                                </div>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+

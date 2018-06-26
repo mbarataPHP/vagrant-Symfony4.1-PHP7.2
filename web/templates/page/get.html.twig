@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ page.title }}{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-3">
+            <h2>{{ page.title }}</h2>
+        </div>
+    </div>
+    {% for article in page.articles %}
+        <div class="row">
+            <div class="col-1">
+            </div>
+            <div class="col-10">
+                {{ article.description }}
+            </div>
+            <div class="col-1">
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="row">
+        <div class="col-3">
+            <a class="btn btn-outline-primary btn-block" href="{{ path('article_add', {idPage:page.id}) }}" role="button">Ajouter un article</a>
+        </div>
+    </div>
+{% endblock %}

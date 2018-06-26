@@ -1,12 +1,43 @@
+
+
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Bienvenue!{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="/build/base.css">
+        {% endblock %}
     </head>
+
     <body>
-        {% block body %}{% endblock %}
+
+        <nav class="navbar navbar-light bg-light justify-content-between">
+
+            <a class="navbar-brand" href="{{ path('index_default') }}">Menu</a>
+
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %} {# si je suis connecté #}
+
+                <span class="navbar-text">
+                    Bonjour {{ app.user.username }}
+                </span>
+
+                <div class="form-inline">
+                    <a class="btn btn-outline-danger my-2 my-sm-0" href="{{ path('logout') }}">Déconnexion</a>
+                </div>
+
+            {% endif %}
+        </nav>
+
+        <br>
+
+        <div class="container">
+
+            {% block body %}{% endblock %}
+
+        </div>
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>
