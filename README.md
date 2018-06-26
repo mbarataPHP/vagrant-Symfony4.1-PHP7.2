@@ -48,7 +48,7 @@ vagrant ssh -- -t 'bash /alias.sh'
 
 | alias | Description |
 | --- | --- |
-| start-service | Commande qui permet de démarrer les service (php-fpm, mysql, ngnix) |
+| start-service | Commande qui permet de démarrer les services (php-fpm, mysql, ngnix) |
 | composer | Composer est un outil de gestion des dépendances en PHP  |
 | phpunit | Exécute les tests de PHP |
 
