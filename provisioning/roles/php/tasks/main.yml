@@ -73,3 +73,7 @@
   template:
     src: "php.cli.ini"
     dest: "/etc/php/7.2/cli/php.ini"
+
+- name: php restart
+  shell: >
+    sudo /etc/init.d/php7.2-fpm restart

@@ -20,4 +20,4 @@ bdd: cache-clear
 
 
 test: cache-clear
-	phpunit
+	php /usr/local/bin/phpunit.phar
